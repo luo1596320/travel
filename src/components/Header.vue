@@ -6,7 +6,7 @@
       </div>
       <div class="header-input">
       <span class="iconfont">&#xe63c;</span>输入城市/景点/游玩主题</div>
-      <div class="header-right">三亚<span class="iconfont city-icon">&#xe65c;</span>
+      <div class="header-right">成都<span class="iconfont city-icon">&#xe65c;</span>
       </div>
     </div>
   </div>
