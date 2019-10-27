@@ -16,60 +16,14 @@
 <script>
   export default {
     name: 'homeIcons',
+    props: {
+      iconList: Array
+    },
     data (){
       return {
-        iconList: [
-          {
-            id: 'f3dd6c383aeb3b02',
-            iconUrl: '/static/images/home/icons/f3dd6c383aeb3b02.png',
-            iconText: '景点门票'
-          },
-          {
-            id: '26ffa31b56646402',
-            iconUrl: '/static/images/home/icons/26ffa31b56646402.png',
-            iconText: '成都海昌'
-          },
-          {
-            id: '02f5043b51b2102',
-            iconUrl: '/static/images/home/icons/02f5043b51b2102.png',
-            iconText: '情迷九寨'
-          },
-          {
-            id: '67df61427c8e1302',
-            iconUrl: '/static/images/home/icons/67df61427c8e1302.png',
-            iconText: '川剧变脸'
-          },
-          {
-            id: '13ceb38dcf262f02',
-            iconUrl: '/static/images/home/icons/13ceb38dcf262f02.png',
-            iconText: '一日游'
-          },
-          {
-            id: '8246f27355943202',
-            iconUrl: '/static/images/home/icons/8246f27355943202.png',
-            iconText: '国色天香'
-          },
-          {
-            id: '338c5b924c5809e8c7b14f60a953c3e2',
-            iconUrl: '/static/images/home/icons/338c5b924c5809e8c7b14f60a953c3e2.png',
-            iconText: '成都欢乐谷'
-          },
-          {
-            id: '35899492b1302802',
-            iconUrl: '/static/images/home/icons/35899492b1302802.png',
-            iconText: '熊猫基地'
-          },
-          {
-            id: '02f5043b51b21022',
-            iconUrl: '/static/images/home/icons/02f5043b51b2102.png',
-            iconText: '青城山'
-          },
-          {
-            id: 'f04285731d7121da1b9028e2bf431695',
-            iconUrl: '/static/images/home/icons/f04285731d7121da1b9028e2bf431695.png',
-            iconText: '都江堰'
-          }
-        ]
+        swiperOption: {
+          autoplay: false
+        }
       }
     },
     computed: {
