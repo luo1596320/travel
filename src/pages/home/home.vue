@@ -41,7 +41,6 @@
       },
       getHomeInfoSucc (res){
         res = res.data
-        console.log(res)
         // 判断返回的数据中ret是否为true，ret是数据中自带的标识
         if (res.ret && res.data) {
           const data = res.data
