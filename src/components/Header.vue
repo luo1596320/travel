@@ -7,7 +7,7 @@
       <div class="header-input">
       <span class="iconfont">&#xe63c;</span>输入城市/景点/游玩主题</div>
       <router-link to='/city'>
-        <div class="header-right">{{this.city}}<span class="iconfont city-icon">&#xe65c;</span>
+        <div class="header-right">{{this.$store.state.city}}<span class="iconfont city-icon">&#xe65c;</span>
         </div>
       </router-link>
     </div>
@@ -16,10 +16,7 @@
 
 <script>
   export default {
-    name: 'Header',
-    props: {
-      city: String
-    }
+    name: 'Header'
   }
 </script>
 
@@ -55,6 +52,9 @@
       margin-left: .1rem
       font-size: .32rem
       line-height: .72rem
+      overflow: hidden
+      white-space: nowrap
+      text-overflow: ellipsis
       .city-icon
         font-size: .48rem
 </style>

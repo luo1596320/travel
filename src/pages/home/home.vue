@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :city="city"></Header>
+    <Header></Header>
     <home-swiper :swiperList="swiperList"></home-swiper>
     <home-icons :iconList="iconList"></home-icons>
     <Recommend :recommendList="recommendList"></Recommend>
@@ -27,7 +27,6 @@
     },
     data (){
       return {
-        city: '',
         swiperList: [],
         iconList: [],
         recommendList: [],
@@ -44,7 +43,6 @@
         // 判断返回的数据中ret是否为true，ret是数据中自带的标识
         if (res.ret && res.data) {
           const data = res.data
-          this.city = data.city
           this.swiperList = data.swiperList
           this.iconList = data.iconList
           this.recommendList = data.recommendList

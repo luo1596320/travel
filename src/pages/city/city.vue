@@ -1,14 +1,18 @@
 <template>
   <div>
-    <Header></Header>
-    <Search></Search>
-    <List :cities="cities" :hotCities="hotCities"></List>
-    <Alphabet :cities="cities"></Alphabet>
+    <city-header></city-header>
+    <Search :cities="cities"></Search>
+    <List
+      :cities="cities"
+      :hotCities="hotCities"
+      :letter="letter">
+    </List>
+    <Alphabet :cities="cities" @change="letterChange"></Alphabet>
   </div>
 </template>
 
 <script>
-  import Header from './components/header'
+  import cityHeader from './components/header'
   import Search from './components/search'
   import List from './components/list'
   import Alphabet from './components/alphabet'
@@ -19,11 +23,12 @@
       return {
         // 提前定义两个数据，接收从Ajax中请求过来的对应数据
         cities: {},
-        hotCities: []
+        hotCities: [],
+        letter: ''
       }
     },
     components: {
-      Header,
+      cityHeader,
       Search,
       List,
       Alphabet
@@ -41,7 +46,10 @@
           this.cities = data.cities
           this.hotCities = data.hotCities
         }
-      }
+      },
+      letterChange (letter){
+        this.letter = letter
+      },
     },
     mounted (){
       this.getCityInfo()

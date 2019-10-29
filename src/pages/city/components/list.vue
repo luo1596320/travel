@@ -5,7 +5,7 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">成都</div>
+            <div class="button">{{this.$store.state.city}}</div>
           </div>
         </div>
       </div>
@@ -13,17 +13,23 @@
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list" >
           <div class="button-wrapper"
-          v-for="item of hotCities"
-          :key="item.id">
+            v-for="item of hotCities"
+            :key="item.id"
+            @click="changeCity(item.name)"
+          >
             <div class="button">{{item.name}}</div>
           </div>
         </div>
       </div>
       <div class="area" v-for="(item, key) of cities"
-          :key="key">
+          :key="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
-        <div class="item-list" v-for="innerItem of item"
-          :key="innerItem.id">
+        <div
+          class="item-list"
+          v-for="innerItem of item"
+          :key="innerItem.id"
+          @click="changeCity(innerItem.name)"
+        >
           <div class="item border-topbottom">{{innerItem.name}}</div>
         </div>
       </div>
@@ -37,10 +43,25 @@
     name: 'list',
     props: {
       cities: Object,
-      hotCities: Array
+      hotCities: Array,
+      letter: String
+    },
+    methods: {
+      changeCity (city){
+        this.$store.commit('newCity', city)
+        this.$router.push('/')
+      }
     },
     mounted (){
       this.scroll = new BScroll (this.$refs.wrapper)
+    },
+    watch: {
+      letter (){
+        if (this.letter) {
+          const element = this.$refs[this.letter][0]
+          this.scroll.scrollToElement(element)
+        }
+      }
     }
   }
 </script>
