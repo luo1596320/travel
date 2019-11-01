@@ -16,6 +16,7 @@
   import Weekend from './components/weekend'
   // 引入axios才能发送Ajax请求
   import axios from 'axios'
+  import { mapState } from 'vuex'
   export default {
     name: 'Home',
     components: {
@@ -27,16 +28,20 @@
     },
     data (){
       return {
+        lastCity: '',
         swiperList: [],
         iconList: [],
         recommendList: [],
         weekendList: []
       }
     },
+    computed: {
+      ...mapState(['city'])
+    },
     methods: {
       getHomeInfo (){
         // axios返回promise对象
-        axios.get('/api/index.json').then(this.getHomeInfoSucc)
+        axios.get('/api/index.json?city=' + this.city).then(this.getHomeInfoSucc)
       },
       getHomeInfoSucc (res){
         res = res.data
@@ -51,7 +56,14 @@
       }
     },
     mounted (){
+      this.lastCity = this.city
       this.getHomeInfo()
+    },
+    activated (){
+      if (this.lastCity !== this.city) {
+        this.lastCity = this.city
+        this.getHomeInfo()
+      }
     }
   }
 </script>

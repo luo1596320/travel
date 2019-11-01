@@ -7,7 +7,7 @@
       <div class="header-input">
       <span class="iconfont">&#xe63c;</span>输入城市/景点/游玩主题</div>
       <router-link to='/city'>
-        <div class="header-right">{{this.$store.state.city}}<span class="iconfont city-icon">&#xe65c;</span>
+        <div class="header-right">{{this.city}}<span class="iconfont city-icon">&#xe65c;</span>
         </div>
       </router-link>
     </div>
@@ -15,8 +15,12 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
   export default {
-    name: 'Header'
+    name: 'Header',
+    computed: {
+      ...mapState(['city'])
+    }
   }
 </script>
 
@@ -46,15 +50,9 @@
         font-size: .64rem
         margin-left: .1rem
     .header-right
-      width: 1.24rem
+      min-width: 1.04rem
+      padding: 0 .1rem
       float: right
       color: #fff
-      margin-left: .1rem
-      font-size: .32rem
-      line-height: .72rem
-      overflow: hidden
-      white-space: nowrap
-      text-overflow: ellipsis
-      .city-icon
-        font-size: .48rem
+      text-align: center
 </style>
